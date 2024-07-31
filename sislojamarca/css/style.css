@@ -1,0 +1,102 @@
+:root {
+    --blackback: #111111;
+    --purpleback: #7E00A4;
+    --goldback: #C69F00;
+    --whiteback: #DDDDDD;
+    --text1: #000000;
+    --purple: #310054;
+    /* font-family: "Roboto Mono", monospace; */
+    /* font-family: "Libre Baskerville", serif; */
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: var(--whiteback);
+}
+
+p{
+    color: var(--text1);
+}
+
+h2{
+    color: var(--whiteback);
+}
+
+header{
+    background-image: linear-gradient(to right, var(--text1), var(--blackback));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5vh;
+    height: 100px;
+}
+
+nav{    
+    height: 45px;
+    margin: 0;
+    padding: 0;
+    background-color: var(--purpleback);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    justify-content: space-between;
+}
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    padding: 8px;
+    background-color: var(--purpleback);
+    color: var(--whiteback);
+}
+
+a{
+    display: block;
+    text-decoration: none;
+}
+
+main{
+    display: flex;
+    background-color: var(--whiteback);
+    color: var(--text1)
+}
+
+main > h2{
+    margin-top: 300px;
+    color: var(--text1)
+}
+
+main .voltar{
+    margin-top: 200px;
+}
+
+footer{
+    height: 20px;
+    background-image: linear-gradient(to right, var(--purple), var(--purpleback));background-color: var(--blueback);
+    color: var(--whiteback);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer .names {
+    font-size: 13px;
+}
+
+footer .names a {
+    color: var(--whiteback);
+}

@@ -1,0 +1,77 @@
+:root {
+    --blackback: #111111;
+    --purpleback: #7E00A4;
+    --goldback: #C69F00;
+    --whiteback: #DDDDDD;
+    --text1: #000000;
+    --purple: #310054;
+    /* font-family: "Roboto Mono", monospace; */
+    /* font-family: "Libre Baskerville", serif; */
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: var(--blackback);
+    background-image: url(../../htdocs/psw1/sislojamarca/img/back-cadastro.png);
+}
+
+p{
+    color: var(--whiteback);
+}
+
+h2{
+    color: var(--whiteback);
+}
+
+
+header{
+    background-color: var(--blackback);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5vh;
+    height: 100px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80dvh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cadastro form label{
+    margin-top: 10px;
+}
+
+.header-cad{
+    margin-top: 10dvh;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--purpleback);
+    gap: 5px;
+    padding: 10px 2px;
+    border-radius: 1px;
+}
+
+a{
+    text-decoration: none;
+    color: var(--whiteback);
+}

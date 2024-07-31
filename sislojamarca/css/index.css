@@ -1,0 +1,224 @@
+:root {
+    --blackback: #111111;
+    --purpleback: #7E00A4;
+    --goldback: #C69F00;
+    --whiteback: #DDDDDD;
+    --text1: #000000;
+    --purple: #310054;
+    /* font-family: "Roboto Mono", monospace; */
+    /* font-family: "Libre Baskerville", serif; */
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: var(--whiteback);
+}
+
+p{
+    color: var(--text1);
+}
+
+h2{
+    color: var(--text1);
+}
+
+/* header do site */
+header{
+    background-image: linear-gradient(to right, var(--text1), var(--blackback));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5vh;
+    height: 100px;
+}
+
+img{
+    height: 90px;
+}
+
+header .imglogo a img{
+    background-size: cover;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    background-color: var(--brownback);
+}
+
+header .imguser img{
+    background-size: cover;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+}
+
+/* nav do site */
+nav{
+    background-color: var(--purpleback);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 5vh;
+    height: 5dvh;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--blackback);
+    display: flex;
+    justify-content: center;
+}
+
+li{
+    float: left;
+}
+
+li a {
+    display: block;
+    color: var(--text1);
+    text-align: center;
+    padding: 2px 3px;
+    text-decoration: none;
+}
+
+/* 1º main do site */
+.main1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 400px;
+    background-color: black;
+}
+
+section img{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--whiteback);
+}
+
+.areablack{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--whiteback);
+    font-size: 35px;
+    
+}
+
+.areablack h2{
+    display: block;
+    background-color: var(--blackback);
+    padding: 5px 10px;
+    
+}
+
+.areablack p{
+    font-size: 15px;
+    display: block;
+    background-color: var(--blackback);
+    padding: 5px 10px;
+}
+
+/* 2° main conteudo do site */
+.mainback, main{
+    background-color: var(--whiteback);
+    height: 1024px;
+    display: flex;
+    align-items: center;
+    color: var(--text1);
+    gap: 10dvh;
+}
+
+/* footer do site */
+footer{
+    color: var(--whiteback);
+    height: 100px;
+    background-image: linear-gradient(to right, var(--purple), var(--purpleback));background-color: var(--blueback);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .names h2{
+        color: var(--whiteback);
+}
+
+footer .names p{
+    color: var(--whiteback);
+}
+
+footer .copyright p{
+    color: var(--whiteback);
+}
+
+/**começo do carrosel*/
+section.carrossel{
+    display: flex;
+    padding: 0 35px;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    margin-bottom: 10vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 -4px 8px rgba(231, 231, 231, 0.514), 0 4px 8px rgba(218, 218, 218, 0.514)
+}
+.wrapper{
+    max-width: 1200px;
+    position: relative;
+} 
+.wrapper i{
+    top: 50%;
+    background-color: green;
+    width: 46px;
+    cursor: pointer;
+    position: absolute;
+    font-size: 1.2rem;
+    height: 46px;
+    text-align: center;
+    line-height: 46px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+.wrapper i:first-child{
+    left: -23px;
+    display: none;
+}
+.wrapper i:last-child{
+    right: -23px;
+}
+.wrapper .carousel{
+    font-size: 0px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+.carousel.dragging{
+    cursor: grab;
+    scroll-behavior: smooth;
+}
+.carousel.dragging img{
+    pointer-events: none;
+}
+.carousel img{
+    height: 340px;
+    object-fit: cover;
+    margin-left: 14px;
+    width: calc(100% / 3);
+}
+.carousel img:first-child{
+    margin-left: 0px;
+}
+/*Fim do carrossel*/
