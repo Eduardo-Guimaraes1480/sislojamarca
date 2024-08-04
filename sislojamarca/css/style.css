@@ -25,10 +25,7 @@ p{
     color: var(--text1);
 }
 
-h2{
-    color: var(--whiteback);
-}
-
+/* header do site */
 header{
     background-image: linear-gradient(to right, var(--text1), var(--blackback));
     display: flex;
@@ -38,11 +35,34 @@ header{
     height: 100px;
 }
 
+img{
+    height: 90px;
+}
+
+header .imglogo a img{
+    background-size: cover;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    background-color: var(--brownback);
+}
+
+header .imguser img{
+    background-size: cover;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+}
+
+/* nav do site */
 nav{    
     height: 45px;
     margin: 0;
     padding: 0;
     background-color: var(--purpleback);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 ul {
@@ -50,19 +70,28 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    justify-content: space-between;
+    display: flex;
+    justify-content: center;
 }
   
 li {
     float: left;
+    padding: 2px 100px;
 }
   
+
 li a {
+    height: 40px;
     display: block;
-    padding: 8px;
+    padding: 2px 3px;
     background-color: var(--purpleback);
     color: var(--whiteback);
 }
+
+li a:hover {
+    background-color: var(--purple);
+    color: var(--whiteback);
+  }
 
 a{
     display: block;
@@ -78,10 +107,6 @@ main{
 main > h2{
     margin-top: 300px;
     color: var(--text1)
-}
-
-main .voltar{
-    margin-top: 200px;
 }
 
 footer{

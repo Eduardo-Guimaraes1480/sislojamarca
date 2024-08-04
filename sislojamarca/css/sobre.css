@@ -29,13 +29,41 @@ h2{
     color: var(--text);
 }
 
+li a {
+    height: 40px;
+    display: block;
+    text-align: center;
+    padding: 2px 3px;
+    text-decoration: none;
+}
+
 main{
     background-color: var(--blackback);
-    height: 43dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: var(--text);
     gap: 10dvh;
+}
+
+.sobre {
+    margin: 0px 350px;
+    margin-bottom: 100px;
+}
+
+main .sobre h3{
+    color: var(--text1);
+}
+
+main .sobre h2{
+    color: var(--text1);
+    text-align: center;
+}
+
+main .sobre p{
+    color: var(--text1);
+    font-family:'Times New Roman', Times, serif;
+    text-align: justify;
+    font-size: 15px;
 }

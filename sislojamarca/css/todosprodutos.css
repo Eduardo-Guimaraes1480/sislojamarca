@@ -39,3 +39,7 @@ main{
     color: var(--text);
     gap: 10dvh;
 }
+
+main .voltar{
+    margin-top: 200px;
+}

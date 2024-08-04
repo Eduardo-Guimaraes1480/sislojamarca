@@ -42,15 +42,9 @@ header{
 
 main{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 80dvh;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    height: 80vh; 
 }
 
 .cadastro{
@@ -61,13 +55,9 @@ form {
     width: 100%; /* Largura total do contêiner */
 }
 
-.part1 .part2 {
+.fornecedor .suamarca {
     flex: 1; /* Permite que ambas as divs ocupem espaço igual */
     max-width: 400px; /* Largura máxima para cada div */
-}
-
-.part2{
-    margin: 10px 0px;
 }
 
 label {
@@ -75,7 +65,7 @@ label {
     margin-bottom: 5px;
 }
 
-input, select{
+input {
     width: 100%; /* Faz com que os campos de entrada ocupem toda a largura disponível */
     margin-bottom: 15px; /* Espaçamento entre os campos de entrada */
     padding: 8px; /* Espaçamento interno dos campos de entrada */

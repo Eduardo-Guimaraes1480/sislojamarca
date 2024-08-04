@@ -65,29 +65,30 @@ nav{
     justify-content: space-around;
     align-items: center;
     padding: 0px 5vh;
-    height: 5dvh;
 }
 
 ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: var(--blackback);
     display: flex;
     justify-content: center;
+    
 }
 
 li{
     float: left;
+    
 }
 
 li a {
+    height: 40px;
     display: block;
     color: var(--text1);
     text-align: center;
     padding: 2px 3px;
     text-decoration: none;
+    
 }
 
 /* 1º main do site */
@@ -138,7 +139,7 @@ section img{
     display: flex;
     align-items: center;
     color: var(--text1);
-    gap: 10dvh;
+    gap: 150dvh;
 }
 
 /* footer do site */
@@ -148,11 +149,16 @@ footer{
     background-image: linear-gradient(to right, var(--purple), var(--purpleback));background-color: var(--blueback);
     display: flex;
     align-items: center;
-    justify-content: center;
+}
+
+footer .names{
+    margin: 0px 100px;
+    gap: 50px;
+    text-align: center;
 }
 
 footer .names h2{
-        color: var(--whiteback);
+    color: var(--whiteback);
 }
 
 footer .names p{

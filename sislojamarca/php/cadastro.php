@@ -19,18 +19,34 @@
    
     <main>
         <div class="cadastro">
+            
+        <div class="part1">
             <form action="minhaconta.php" method="post">
-                <label for="nome"><p>Nome</p></label>
-                <input type="text" name="nome" id="nome" required><br>
-                <label for="email"><p>Email</p></label>
-                <input type="email" name="email" id="email" required><br>
+                    
+                    <label for="IDSuap"><p>ID Suap</p></label>
+                        <input type="text" name="IDSuap" id="IDSuap" required>
+                    
+                    <label for="nome"><p>Nome</p></label>
+                        <input type="text" name="nome" id="nome" required>
+                        
+                    <label for="email"><p>Email</p></label>
+                        <input type="email" name="email" id="email" required>
+        </div>
+            
+        <div class="part2">
                 <label for="senha"><p>Senha</p></label>
-                <input type="password" name="senha" id="senha" required><br>
+                    <input type="password" name="senha" id="senha" required>
+
                 <label for="telefone"><p>Telefone</p></label>
-                <input type="tel" name="telefone" id="telefone" ><br>
+                    <input type="tel" name="telefone" id="telefone" >
+
                 <label for="cpf"><p>CPF</p></label>
-                <input type="number" name="cpf" id="cpf" ><br>
-                <input type="submit" value="Cadastrar"><br><br>
+                    <input type="number" name="cpf" id="cpf" >
+
+        </div>
+                
+                <input type="submit" value="Cadastrar"><br>
+
             </form>
         </div>
     </main>

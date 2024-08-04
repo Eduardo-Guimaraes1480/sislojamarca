@@ -49,6 +49,33 @@ form {
     justify-content: center;
 }
 
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%; /* Faz com que os campos de entrada ocupem toda a largura disponível */
+    margin-bottom: 15px; /* Espaçamento entre os campos de entrada */
+    padding: 8px; /* Espaçamento interno dos campos de entrada */
+    border: 1px solid var(--whiteback); /* Borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+input[type="submit"] {
+    width: auto; /* Largura automática para o botão de envio */
+    background-color: var(--purpleback); /* Cor de fundo do botão */
+    color: var(--whiteback); /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+}
+
+input[type="submit"]:hover {
+    background-color: var(--goldback); /* Cor do botão ao passar o mouse */
+}
+
 .cadastro form label{
     margin-top: 10px;
 }

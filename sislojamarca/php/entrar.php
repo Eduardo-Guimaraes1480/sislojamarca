@@ -21,11 +21,15 @@
     <main>
     <div class="entrar">
             <form action="minhaconta.php" method="post">
-                <label for="email"><p>Email</p></label>
-                <input type="email" name="email" id="Email"><br><br>
+                
+                <label for="idsuap"><p>ID Suap</p></label>
+                    <input type="email" name="idsuap" id="idsuap"><br><br>
+                
                 <label for="senha"><p>Senha</p></label>
-                <input type="password" name="senha" id="Senha"><br><br>
+                    <input type="password" name="senha" id="Senha"><br><br>
+
                 <input type="submit" value="Entrar"><br><br>
+                
             </form>
 
     </main>
