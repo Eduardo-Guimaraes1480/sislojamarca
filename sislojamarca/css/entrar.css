@@ -17,21 +17,33 @@
     padding: 0px;
 }
 
-p{
+body {
+    background-image: url("../img/backgroundcadastro.png");
+    background-size: cover;
+    background-clip: content-box;
+    background-repeat: no-repeat;
+    height: 90vh;
+}
+
+p, h2, label{
     color: var(--whiteback);
 }
 
 h2{
-    color: var(--whiteback);
+    font-size: 6rem;
+    font-weight: bolder;
 }
 
+p {
+    font-size: 2rem;
+}
 
 header{
-    background-color: var(--blackback);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 5vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    padding: 8vh;
     height: 100px;
 }
 
@@ -40,36 +52,40 @@ main{
     flex-direction: column;
     align-items: center;
     height: 80dvh;
-    background-color: var(--blackback);
+    width: 100%;
 }
 
 form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 15%;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 input {
     width: 100%; /* Faz com que os campos de entrada ocupem toda a largura disponível */
     margin-bottom: 15px; /* Espaçamento entre os campos de entrada */
-    padding: 8px; /* Espaçamento interno dos campos de entrada */
+    padding: 12px; /* Espaçamento interno dos campos de entrada */
     border: 1px solid var(--whiteback); /* Borda padrão */
-    border-radius: 4px; /* Bordas arredondadas */
+    border-radius: 8px; /* Bordas arredondadas */
 }
 
 input[type="submit"] {
-    width: auto; /* Largura automática para o botão de envio */
     background-color: var(--purpleback); /* Cor de fundo do botão */
     color: var(--whiteback); /* Cor do texto do botão */
     border: none; /* Remove a borda padrão */
     padding: 10px 20px; /* Espaçamento interno do botão */
-    border-radius: 4px; /* Bordas arredondadas */
     cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    font-size: 1rem;
+    font-weight: 900;
+    align-self: center;
 }
 
 input[type="submit"]:hover {
