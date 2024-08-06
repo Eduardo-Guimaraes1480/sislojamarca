@@ -34,11 +34,11 @@
 
         <div class="MaisCadastros">
             <div class="cadproduto">
-                <br><br><p><a href="cadproduto.php">Cadastrar Novo Produto</a></p>
+                <br><br><p><a href="./cadproduto.php">Cadastrar Novo Produto</a></p>
             </div>
 
             <div class="cadmarca">
-                <br><br><p><a href="cadmarca.php">Cadastrar Marca</a></p>
+                <br><br><p><a href="./cadmarca.php">Cadastrar Marca</a></p>
             </div>
         </div>
         

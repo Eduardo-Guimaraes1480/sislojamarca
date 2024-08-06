@@ -16,4 +16,15 @@ class CrudProduto extends Produto {
 
         return $data;
     }
+
+    public function findAll() {
+        require_once realpath(__DIR__ . "/../../database/conexao.php");
+        try{
+            $data = $conn->query("SELECT * FROM $this->tabela")->fetch_all(MYSQLI_ASSOC);
+        } catch (Exception $e) {
+            $data = $e->getMessage();
+        }
+        
+        return $data;
+    }
 }
