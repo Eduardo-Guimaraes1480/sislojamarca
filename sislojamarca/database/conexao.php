@@ -1,5 +1,5 @@
 <?php
-$localhost = 'localhost';
+$host = 'localhost';
 $user = 'root';
 $pass = '';
 $dbname = 'sislojamarca';

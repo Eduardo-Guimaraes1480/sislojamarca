@@ -1,3 +1,37 @@
+<?php 
+session_start();
+ini_set("display_errors", 1);
+
+require_once "../controllers/produto/crudProduto.php";
+
+if(isset($_POST["cadastrar"])){
+    $cbarra = $_POST["cbarra"] ?? "não informado";
+    $titulo = $_POST["titulo"] ?? "não informado";
+    $preco = $_POST["preco"] ?? "não informado";
+    $marca = $_POST["marca"] ?? "não informado";
+    $tipo = $_POST["tipo"] ?? "não informado";
+    $detalhesproduto = $_POST["detalhesproduto"] ?? "não informado";
+    $tamanhos = $_POST["tamanhos"] ?? "não informado";
+    $idSuap_produto = $_SESSION["id"];
+    
+
+    $crud = new CrudProduto();
+        
+    $reponse = $crud->insert($cbarra, $titulo, $preco, $marca, $tipo, $detalhesproduto, $tamanhos, $idSuap_produto);
+
+    echo $reponse;
+
+    if($reponse == 1){
+        echo "<script>alert('Cadastro realizado')</script>";
+    } else {
+        echo "<script>alert('Erro ao cadastrar!')</script>";
+    }
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -21,9 +55,9 @@
         <div class="cadastro">
 
         <div class="part1">
-            <form action="todosprodutos.php" method="post">
+            <form action="" method="post">
             <label for="Cbarra"><p>C. Barra</p></label>
-                        <input type="text" name="Cbarra" id="Cbarra" required><br>
+                        <input type="text" name="cbarra" id="Cbarra" required><br>
 
                     <label for="titulo"><p>Titulo</p></label>
                         <input type="text" name="titulo" id="titulo" required><br>
@@ -60,7 +94,7 @@
 
         </div>
 
-                <input type="submit" value="Cadastrar"><br><br>
+                <input type="submit" value="Cadastrar" name="cadastrar"><br><br>
 
             </form>
         </div>

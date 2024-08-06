@@ -1,3 +1,38 @@
+<?php 
+session_start();
+ini_set("display_errors", 1);
+
+require_once "../controllers/marca/crudMarca.php";
+
+if(isset($_POST["cadastrar"])){
+    $idmarca = $_POST["IDMarca"] ?? "não informado";
+    $nomefornecedor = $_POST["nomeFornecedor"] ?? "não informado";
+    $emailfornecedor = $_POST["email"] ?? "não informado";
+    $cpffornecedor = $_POST["cpf"] ?? "não informado";
+
+    $nomemarca = $_POST["nomeMarca"] ?? "não informado";
+    $detalhesproduto = $_POST["detalhesProduto"] ?? "não informado";
+    $datacriacao = $_POST["dataCriacao"] ?? "não informado";
+    $contato = $_POST["contato"] ?? "não informado";
+    $endereco = $_POST["endereco"] ?? "não informado";
+
+    $crud = new CrudProduto();
+        
+    $reponse = $crud->insert($cbarra, $titulo, $preco, $marca, $tipo, $detalhesproduto, $tamanhos, $idSuap_produto);
+
+    echo $reponse;
+
+    if($reponse == 1){
+        echo "<script>alert('Cadastro realizado')</script>";
+    } else {
+        echo "<script>alert('Erro ao cadastrar!')</script>";
+    }
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
