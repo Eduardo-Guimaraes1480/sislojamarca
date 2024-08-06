@@ -1,0 +1,18 @@
+<?php 
+
+require_once realpath(__DIR__ ."/fornecedor.php");
+class CrudForncedor extends Fornecedor {
+
+    protected string $tabela = "fornecedor";
+
+    public function insert ($nomeFornecedor, $email, $cpf, $cnpj) {
+        require_once realpath(__DIR__ . "/../../database/conexao.php");
+        try {
+            $data = $conn->query("INSERT INTO $this->tabela VALUES ('$nomeFornecedor', '$email', '$cpf', '$cnpj')");
+        } catch (Exception $e) {
+            $data = $e->getMessage();
+        }
+
+        return $data;
+    }
+}
