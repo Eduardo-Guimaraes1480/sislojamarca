@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <header>
         <div class="imglogo">
             <a href="../php/index.html"><img src="../img/img2/logoshop1.png" alt="Teste" class="d-block"

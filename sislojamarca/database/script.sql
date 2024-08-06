@@ -2,16 +2,16 @@ drop database if exists sislojamarca;
 create database sislojamarca;
 use sislojamarca;
 
-create table CadUsuario(
+create table usuario(
     IDSuap VARCHAR(15) primary key,
     nome VARCHAR(100) not null,
     email VARCHAR(100) unique,
     senha VARCHAR(100),
     telefone VARCHAR(11),
-    cpf VARCHAR(11) unique
+    cpf VARCHAR(15) unique
 );
 
-create table CadFornecedor(
+create table fornecedor(
     IDFornecedor VARCHAR(15) primary key,
     nomeFornecedor VARCHAR(100) not null,
     email VARCHAR(100) unique,
@@ -19,7 +19,7 @@ create table CadFornecedor(
     cnpj VARCHAR(14) unique
 );
 
-create table CadMarca(
+create table marca(
     IDMarca VARCHAR(15) primary key,
     nomeMarca VARCHAR(255) not null,
     descriacao TEXT,
@@ -28,10 +28,10 @@ create table CadMarca(
     endereco VARCHAR(255),
     IDFornecedor VARCHAR(15),
     FOREIGN KEY (IDFornecedor)
-    references CadFornecedor (IDFornecedor) 
+    references fornecedor (IDFornecedor) 
 );
 
-create table CadProduto(
+create table produto(
     CBarra VARCHAR(13) primary key,
     titulo VARCHAR(255) not null,
     preco DECIMAL(10, 2),
@@ -41,12 +41,12 @@ create table CadProduto(
     tamanhos VARCHAR(11),
     IDSuap_produto VARCHAR(16),
     FOREIGN KEY (IDSuap_produto)
-    references CadUsuario (IDSuap),
+    references usuario (IDSuap),
     FOREIGN KEY (marca)
-    references CadMarca (IDMarca)
+    references marca (IDMarca)
 );
 
-select * from CadFornecedor;
-select * from CadUsuario;
-select * from CadMarca;
-select * from CadProduto;
+select * from fornecedor;
+select * from usuario;
+select * from marca;
+select * from produto;

@@ -63,7 +63,7 @@
     </div>    
 
         <div class="voltar">
-            <a href="index.html">Voltar para a pagina Incial</a>
+            <a href="./index.php">Voltar para a pagina Incial</a>
         </div>
     </main>
 

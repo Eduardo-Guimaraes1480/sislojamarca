@@ -21,8 +21,17 @@
         </section>
 
         <div class="areablack">
-            <h3><a href="cadastro.php">Cadastrar</a></h3>
-            <p><a href="entrar.php">Entrar</a></p>
+            <?php 
+            if (!isset($_SESSION["id"])) {
+                echo "
+                <h3><a href='cadastro.php'>Cadastrar</a></h3>
+                <p><a href='entrar.php'>Entrar</a></p>";
+            } else {
+                echo "
+                <h3><a href='altproduto.php'>Alterar Produto</a></h3>
+                <p><a href='logout.php'>Sair</a></p>";
+            }
+            ?>
         </div>
     </div>
 
