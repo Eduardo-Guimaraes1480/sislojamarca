@@ -46,7 +46,21 @@ create table produto(
     references marca (IDMarca)
 );
 
+insert into fornecedor values
+("1", "Bruno", "bruno@gmail", "10079345654", "918230192380");
+
+insert into marca values
+("1", "ESE", "bla bla bla", "2020-09-09", "1923810", "Rua Oscar Alho, 600", "1"),
+("2", "LAB", "bla bla bla", "2020-09-09", "1923810", "Rua Oscar Alho, 601", "1"),
+("3", "NE", "bla bla bla", "2020-09-09", "1923810", "Rua Oscar Alho, 602", "1");
+
+insert into produto values 
+("03192831290", "Moleton Nike", "120.00", "1", "Moleton", "bla bla bla", "P", "20221GBI23I0010");
+
 select * from fornecedor;
 select * from usuario;
 select * from marca;
 select * from produto;
+
+
+

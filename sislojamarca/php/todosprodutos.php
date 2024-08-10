@@ -28,18 +28,18 @@
 
         $data = findAllProduto();
 
-        for($i = 0; $i < 10; $i++){
+        for($i = 0; $i < 5; $i++){
             
             foreach ($data as $produto) {?>
 
             <div class="produto">
                 <div class="imagem">
-                    <img src="../img/laboratoria/camisa1.PNG" alt="Imagem do Produto">
+                    <img src="../img/laboratoria/<?= $produto["CBarra"] ?>.PNG" alt="Imagem do Produto">
                 </div>
                 <div class="info">
-                    <h3 class="desc-prod"><?php echo $produto["titulo"]?></h3>
+                    <h3 class="desc-prod"><?= $produto["titulo"]?></h3>
                     <div>
-                        <span>R$<?php echo str_replace(".", ",", $produto["preco"])?></span>
+                        <span>R$<?= str_replace(".", ",", $produto["preco"])?></span>
                         <button><i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
                 </div>
