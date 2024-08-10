@@ -1,23 +1,17 @@
 <?php 
 
-ini_set("display_errors",1);
-
 require_once "../controllers/users/crudUsuario.php";
 
 if(isset($_POST["entrar"])){
     $idsuap = $_POST["idsuap"];
     $senha = $_POST["senha"];
-
-    $crud = new CrudUsuario();
         
-    $reponse = $crud->login($idsuap);
+    $reponse = login($idsuap);
 
-    var_dump( $reponse );
-
-    if($reponse[0]["IDSuap"]){
-        if($reponse[0]["senha"] == hash("sha256", $senha)){
+    if($reponse["IDSuap"]){
+        if($reponse["senha"] == hash("sha256", $senha)){
             session_start();
-            $_SESSION["id"] = $reponse[0]["IDSuap"];
+            $_SESSION["id"] = $reponse["IDSuap"];
             header("Location: ./index.php");
         } else {
             echo "<script>alert('Senha Incorreta!')</script>";

@@ -10,9 +10,8 @@ if(isset($_POST["cadastrar"])){
     $telefone = $_POST["telefone"] ?? "não informado";
     $cpf = $_POST["cpf"] ?? "não informado";
 
-    $crud = new CrudUsuario();
         
-    $reponse = $crud->insert($idSuap, $nome, $cpf, $senha, $email, $telefone);
+    $reponse = insert($idSuap, $nome, $cpf, $senha, $email, $telefone);
 
     if($reponse){
         header("Location: ./entrar.php");

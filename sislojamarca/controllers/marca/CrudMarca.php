@@ -7,23 +7,24 @@ class CrudMarca extends Marca {
 
     public function insert ($nomeMarca, $descricao, $dataCriacao, $contato, $endereco, $IDFornecedor) {
         require_once realpath(__DIR__ . "/../../database/conexao.php");
+        $sql = "INSERT INTO $this->tabela VALUES ('$nomeMarca', '$descricao', '$dataCriacao', '$contato', '$endereco', '$IDFornecedor')";
+        $stm = Database::prepare($sql);
         try {
-            $data = $conn->query("INSERT INTO $this->tabela VALUES ('$nomeMarca', '$descricao', '$dataCriacao', '$contato', '$endereco', '$IDFornecedor')");
+            return $stm->execute();
         } catch (Exception $e) {
-            $data = $e->getMessage();
+            return $e->getMessage();
         }
-
-        return $data;
     }
 
     public function findAll() {
         require_once realpath(__DIR__ . "/../../database/conexao.php");
-        try{
-            $data = $conn->query("SELECT * FROM $this->tabela")->fetch_all(MYSQLI_ASSOC);
+        $sql = "SELECT * FROM $this->tabela";
+        $stm = Database::prepare($sql);
+        try {
+            $stm->execute();
+            return $stm->fetchAll();
         } catch (Exception $e) {
-            $data = $e->getMessage();
+            return $e->getMessage();
         }
-        
-        return $data;
     }
 }

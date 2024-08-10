@@ -12,23 +12,48 @@
 </head>
 <body>
 
-    <?php include_once "../components/header.php"?>
+    <?php 
+    ini_set("display_errors", 1);
+    
+    include_once "../components/header.php"?>
 
     <main>
-        <h2>todosprodutos.php</h2>
+        <h2>Produtos</h2>
 
-        <?php echo $_POST ['CBarra'] ??'';?>
-        <?php echo $_POST ['titulo'] ??'';?>
-        <?php echo $_POST ['preco'] ??'';?>
-        <?php echo $_POST ['marca'] ??'';?>
-        <?php echo $_POST ['tipo'] ??'';?>
-        <?php echo $_POST ['detalhesProduto'] ??'';?>
-        <?php echo $_POST ['tamanhos'] ??'';?>
+        <div class="produtos">
 
+        
+        <?php 
+        require realpath(__DIR__ . "/../controllers/produto/crudProduto.php");
+
+        $data = findAllProduto();
+
+        for($i = 0; $i < 10; $i++){
+            
+            foreach ($data as $produto) {?>
+
+            <div class="produto">
+                <div class="imagem">
+                    <img src="../img/laboratoria/camisa1.PNG" alt="Imagem do Produto">
+                </div>
+                <div class="info">
+                    <h3 class="desc-prod"><?php echo $produto["titulo"]?></h3>
+                    <div>
+                        <span>R$<?php echo str_replace(".", ",", $produto["preco"])?></span>
+                        <button><i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        <?php }}?>
+
+        </div>
         <div class="voltar">
             <a href="./index.php">Voltar para a pagina Incial</a>
         </div>
     </main>
 
+    <script src="../js/truncate.js"></script>
+    <script src="https://kit.fontawesome.com/19ad99d8f1.js" crossorigin="anonymous"></script>
 </body>
-</html>
+</html> 

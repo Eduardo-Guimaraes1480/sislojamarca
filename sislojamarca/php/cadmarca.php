@@ -2,7 +2,7 @@
 session_start();
 ini_set("display_errors", 1);
 
-require_once "../controllers/marca/crudMarca.php";
+require_once "../controllers/marca/CrudMarca.php";
 
 if(isset($_POST["cadastrar"])){
     $idmarca = $_POST["IDMarca"] ?? "não informado";

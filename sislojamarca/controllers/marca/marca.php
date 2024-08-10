@@ -1,6 +1,8 @@
 <?php 
 
-class Marca {
+require_once realpath(__DIR__ . "/../../database/conexao.php");
+
+class Marca extends Database{
 
     private string $IDmarca;
     private string $nomeMarca;
