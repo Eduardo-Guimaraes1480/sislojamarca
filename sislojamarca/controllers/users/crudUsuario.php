@@ -18,7 +18,7 @@ function login($idsuap)
     require realpath(__DIR__ . "/../../database/conexao.php");
     $sql = "SELECT IDSuap, senha FROM usuario WHERE IDSuap = :idsuap";
     $stm = $conn->prepare($sql);
-    
+    $stm->bindParam(":idsuap", $idsuap);
     try {
         $stm->execute();
         return $stm->fetch();

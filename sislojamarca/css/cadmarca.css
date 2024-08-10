@@ -83,6 +83,14 @@ input[type="submit"] {
     cursor: pointer; /* Muda o cursor ao passar sobre o botão */
 }
 
+select{
+    width: 100%; /* Faz com que os campos de entrada ocupem toda a largura disponível */
+    margin-bottom: 15px; /* Espaçamento entre os campos de entrada */
+    padding: 8px; /* Espaçamento interno dos campos de entrada */
+    border: 1px solid var(--whiteback); /* Borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
 input[type="submit"]:hover {
     background-color: var(--goldback); /* Cor do botão ao passar o mouse */
 }

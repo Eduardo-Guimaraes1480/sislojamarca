@@ -3,7 +3,7 @@ session_start();
 ini_set("display_errors", 1);
 
 require_once "../controllers/produto/crudProduto.php";
-require_once "../controllers/marca/CrudMarca.php";
+require_once "../controllers/marca/crudMarca.php";
 
 if(isset($_POST["cadastrar"])){
     $cbarra = $_POST["cbarra"] ?? "não informado";

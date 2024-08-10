@@ -2,30 +2,23 @@
 session_start();
 ini_set("display_errors", 1);
 
-require_once "../controllers/marca/CrudMarca.php";
+require_once "../controllers/marca/crudMarca.php";
+require_once "../controllers/fornecedor/crudFornecedor.php";
 
 if(isset($_POST["cadastrar"])){
-    $idmarca = $_POST["IDMarca"] ?? "não informado";
-    $nomefornecedor = $_POST["nomeFornecedor"] ?? "não informado";
-    $emailfornecedor = $_POST["email"] ?? "não informado";
-    $cpffornecedor = $_POST["cpf"] ?? "não informado";
-
+    $fornecedor = $_POST["fornecedor"] ?? "não informado";
     $nomemarca = $_POST["nomeMarca"] ?? "não informado";
-    $detalhesproduto = $_POST["detalhesProduto"] ?? "não informado";
+    $descricao = $_POST["descricao"] ?? "não informado";
     $datacriacao = $_POST["dataCriacao"] ?? "não informado";
     $contato = $_POST["contato"] ?? "não informado";
     $endereco = $_POST["endereco"] ?? "não informado";
 
-    $crud = new CrudProduto();
-        
-    $reponse = $crud->insert($cbarra, $titulo, $preco, $marca, $tipo, $detalhesproduto, $tamanhos, $idSuap_produto);
+    $fornecedor = findIdByNameFornecedor($fornecedor)["IDFornecedor"];
 
-    echo $reponse;
-
-    if($reponse == 1){
-        echo "<script>alert('Cadastro realizado')</script>";
-    } else {
-        echo "<script>alert('Erro ao cadastrar!')</script>";
+    try {
+        $reponse = insertMarca($nomemarca, $descricao, $datacriacao, $contato, $endereco, $fornecedor);
+    } catch (PDOException $e) {
+        echo "<script> window.alert('Erro ao cadastrar: '" . $e->getMessage() . ")</script>";
     }
 }
 
@@ -56,26 +49,20 @@ if(isset($_POST["cadastrar"])){
         <div class="cadastro">
 
                 <div class="fornecedor">
-                <form action="marcasparceiras.php" method="post">
-                    <label for="IDMarca"><p>ID Marca</p></label>
-                        <input type="text" name="IDMarca" id="IDMarca" required><br>
-
-                    <label for="nomeFornecedor"><p>Nome Fornecedor</p></label>
-                        <input type="text" name="nomeFornecedor" id="nomeFornecedor" required><br>
-
-                    <label for="email"><p>Email</p></label>
-                        <input type="email" name="email" id="email" required><br>
-
-                    <label for="cpf"><p>CPF</p></label>
-                        <input type="text" name="cpf" id="cpf" required><br><br><br>
+                <form action="" method="post">
+                    <label for="fornecedor"><p>Fornecedor</p></label>
+                        <select id="fornecedor" name="fornecedor">
+                            <option value="Bruno">Bruno</option>
+                            <option value="NA">NA</option>
+                        </select><br>
                 </div>
 
                 <div class="suamarca">
                         <label for="nomeMarca"><p>Nome da Marca</p></label>
                             <input type="text" name="nomeMarca" id="nomeMarca" required><br>
 
-                        <label for="detalhesProduto"><p>Descrição</p></label>
-                            <input type="text" name="detalhesProduto" id="detalhesProduto"><br>
+                        <label for="descricao"><p>Descrição</p></label>
+                            <input type="text" name="descricao" id="descricao"><br>
 
                         <label for="dataCriacao"><p>Criado na Data</p></label>
                             <input type="date" name="dataCriacao" id="dataCriacao"><br>
@@ -87,7 +74,7 @@ if(isset($_POST["cadastrar"])){
                             <input type="text" name="endereco" id="endereco"><br>
                 </div>
 
-                <input type="submit" value="Cadastrar"><br><br>
+                <input type="submit" value="Cadastrar" name="cadastrar"><br><br>
 
             </form>
         </div>

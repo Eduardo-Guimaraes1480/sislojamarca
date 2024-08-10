@@ -2,8 +2,15 @@
 
 function insertMarca ($nomeMarca, $descricao, $dataCriacao, $contato, $endereco, $IDFornecedor) {
     require realpath(__DIR__ . "/../../database/conexao.php");
-    $sql = "INSERT INTO marca VALUES ('$nomeMarca', '$descricao', '$dataCriacao', '$contato', '$endereco', '$IDFornecedor')";
+    $sql = "INSERT INTO marca VALUES (DEFAULT, :nomeMarca, :descricao, :dataCriacao, :contato, :endereco, :IDFornecedor)";
     $stm = $conn->prepare($sql);
+    $stm->bindParam(":nomeMarca", $nomeMarca);
+    $stm->bindParam(":descricao", $descricao);
+    $stm->bindParam(":dataCriacao", $dataCriacao);
+    $stm->bindParam(":contato", $contato);
+    $stm->bindParam(":endereco", $endereco);
+    $stm->bindParam(":IDFornecedor", $IDFornecedor);
+    $stm->execute();
     try {
         return $stm->execute();
     } catch (Exception $e) {
