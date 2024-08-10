@@ -52,7 +52,7 @@ if(isset($_POST["cadastrar"])){
         <div class="part1">
             <form action="" method="post">
             <label for="cbarra"><p>C. Barra</p></label>
-                        <input type="text" name="cbarra" id="Cbarra" required><br>
+                        <input type="text" maxlength="11" name="cbarra" id="Cbarra" required><br>
 
                     <label for="titulo"><p>Titulo</p></label>
                         <input type="text" name="titulo" id="titulo" required><br>
