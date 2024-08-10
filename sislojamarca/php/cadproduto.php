@@ -65,9 +65,13 @@ if(isset($_POST["cadastrar"])){
         <div class="part2">
                 <label for="marca"><p>Marca</p></label>
                         <select id="marca" name="marca">
-                            <option value="ESE">ESE</option>
-                            <option value="LAB">LABORATORIA</option>
-                            <option value="NE">NOVA ERA</option>
+                            <?php 
+                            $listaMarcas = findAllMarca();
+                            
+                            foreach ($listaMarcas as $imarca) {?>
+                                <option value="<?= $imarca["sigla"]?>"><?= $imarca["nomeMarca"]?></option>
+                            <?php }?>
+
                         </select><br>
                 <label for="tipo"><p>Tipos</p></label>
                     <select id="tipo" name="tipo">

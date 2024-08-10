@@ -1,10 +1,11 @@
 <?php 
 
-function insertMarca ($nomeMarca, $descricao, $dataCriacao, $contato, $endereco, $IDFornecedor) {
+function insertMarca ($nomeMarca, $sigla, $descricao, $dataCriacao, $contato, $endereco, $IDFornecedor) {
     require realpath(__DIR__ . "/../../database/conexao.php");
-    $sql = "INSERT INTO marca VALUES (DEFAULT, :nomeMarca, :descricao, :dataCriacao, :contato, :endereco, :IDFornecedor)";
+    $sql = "INSERT INTO marca VALUES (DEFAULT, :nomeMarca, :sigla, :descricao, :dataCriacao, :contato, :endereco, :IDFornecedor)";
     $stm = $conn->prepare($sql);
     $stm->bindParam(":nomeMarca", $nomeMarca);
+    $stm->bindParam(":sigla", $sigla);
     $stm->bindParam(":descricao", $descricao);
     $stm->bindParam(":dataCriacao", $dataCriacao);
     $stm->bindParam(":contato", $contato);
@@ -32,7 +33,7 @@ function findAllMarca() {
 
 function findIdByNameMarca($nomeMarca) {
     require realpath(__DIR__ . "/../../database/conexao.php");
-    $sql = "SELECT IDMarca FROM marca WHERE nomeMarca = '$nomeMarca'";
+    $sql = "SELECT IDMarca FROM marca WHERE sigla = '$nomeMarca'";
     $stm = $conn->prepare($sql);
     try {
         $stm->execute();

@@ -12,16 +12,18 @@ function insert($nomeFornecedor, $email, $cpf, $cnpj)
     return $data;
 }
 
-function findAll()
+function findAllFornecedor()
 {
     require realpath(__DIR__ . "/../../database/conexao.php");
-    try {
-        $data = $conn->query("SELECT * FROM fornecedor")->fetch_all(MYSQLI_ASSOC);
-    } catch (Exception $e) {
-        $data = $e->getMessage();
-    }
+    $sql = "SELECT * FROM fornecedor";
+    $stm = $conn->prepare($sql);
 
-    return $data;
+    try {
+        $stm->execute();
+        return $stm->fetchAll();
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
 }
 
 function findIdByNameFornecedor($nome){

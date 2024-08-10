@@ -8,6 +8,7 @@ require_once "../controllers/fornecedor/crudFornecedor.php";
 if(isset($_POST["cadastrar"])){
     $fornecedor = $_POST["fornecedor"] ?? "não informado";
     $nomemarca = $_POST["nomeMarca"] ?? "não informado";
+    $sigla = $_POST["sigla"] ?? "não informado";
     $descricao = $_POST["descricao"] ?? "não informado";
     $datacriacao = $_POST["dataCriacao"] ?? "não informado";
     $contato = $_POST["contato"] ?? "não informado";
@@ -16,7 +17,7 @@ if(isset($_POST["cadastrar"])){
     $fornecedor = findIdByNameFornecedor($fornecedor)["IDFornecedor"];
 
     try {
-        $reponse = insertMarca($nomemarca, $descricao, $datacriacao, $contato, $endereco, $fornecedor);
+        $reponse = insertMarca($nomemarca, $sigla, $descricao, $datacriacao, $contato, $endereco, $fornecedor);
     } catch (PDOException $e) {
         echo "<script> window.alert('Erro ao cadastrar: '" . $e->getMessage() . ")</script>";
     }
@@ -52,14 +53,21 @@ if(isset($_POST["cadastrar"])){
                 <form action="" method="post">
                     <label for="fornecedor"><p>Fornecedor</p></label>
                         <select id="fornecedor" name="fornecedor">
-                            <option value="Bruno">Bruno</option>
-                            <option value="NA">NA</option>
+                            <?php 
+                            $data = findAllFornecedor();
+                            foreach ($data as $fornecedor) {?>
+                                <option value="<?= $fornecedor["nomeFornecedor"]?>"><?= $fornecedor["nomeFornecedor"]?></option>
+                            <?php }?>
+
                         </select><br>
                 </div>
 
                 <div class="suamarca">
                         <label for="nomeMarca"><p>Nome da Marca</p></label>
                             <input type="text" name="nomeMarca" id="nomeMarca" required><br>
+
+                        <label for="sigla"><p>Sigla</p></label>
+                            <input type="text" name="sigla" id="sigla" required><br>
 
                         <label for="descricao"><p>Descrição</p></label>
                             <input type="text" name="descricao" id="descricao"><br>

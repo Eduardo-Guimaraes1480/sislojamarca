@@ -21,7 +21,8 @@ create table fornecedor(
 
 create table marca(
     IDMarca INT AUTO_INCREMENT primary key,
-    nomeMarca VARCHAR(255) not null,
+    nomeMarca VARCHAR(255) not null unique,
+    sigla varchar(10) not null unique,
     descriacao TEXT,
     dataCriacao DATE,
     contato VARCHAR(100),
@@ -50,12 +51,13 @@ insert into usuario values
 ("20221GBI23I0010", "admin", "admin@gmail", "2ac9a6746aca543af8dff39894cfe8173afba21eb01c6fae33d52947222855ef", "77999999999", "00000000001");
 
 insert into fornecedor values
-("1", "Bruno", "bruno@gmail", "10079345654", "918230192380");
+("1", "Bruno", "bruno@gmail", "10079345654", "918230192380"),
+("2", "NA", "na@gmail", "10079345655", "918230192381");
 
 insert into marca values
-(DEFAULT, "ESE", "bla bla bla", "2020-09-09", "1923810", "Rua Oscar Alho, 600", "1"),
-(DEFAULT, "LAB", "bla bla bla", "2020-09-09", "1923810", "Rua Oscar Alho, 601", "1"),
-(DEFAULT, "NE", "bla bla bla", "2020-09-09", "1923810", "Rua Oscar Alho, 602", "1");
+(DEFAULT, "ESE", "ESE", "bla bla bla", "2020-09-09", "1923810", "Rua Oscar Alho, 600", "1"),
+(DEFAULT, "Laboratoria", "LAB", "bla bla bla", "2020-09-09", "1923810", "Rua Oscar Alho, 601", "1"),
+(DEFAULT, "Nova Era", "NE", "bla bla bla", "2020-09-09", "1923810", "Rua Oscar Alho, 602", "1");
 
 insert into produto values 
 ("03192831290", "Moleton Nike", "120.00", 1, "Moleton", "bla bla bla", "P", "20221GBI23I0010");
@@ -64,6 +66,7 @@ select * from fornecedor;
 select * from usuario;
 select * from marca;
 select * from produto;
+
 
 
 
