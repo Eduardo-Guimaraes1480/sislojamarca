@@ -17,7 +17,7 @@
     <?php include_once "../components/header.php" ?>
 
     <main>
-        <h1>sobre.html</h1>
+        <h1>sobre.php</h1>
 
         <div class="sobre">
             <h3>Bem-vindo à ESE Shop!</h3>

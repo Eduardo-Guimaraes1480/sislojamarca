@@ -32,7 +32,7 @@
             
             foreach ($data as $produto) {?>
 
-            <div class="produto">
+            <div class="produto" id="<?= $produto["CBarra"]?>">
                 <div class="imagem">
                     <img src="../img/laboratoria/<?= $produto["CBarra"] ?>.PNG" alt="Imagem do Produto">
                 </div>

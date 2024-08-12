@@ -17,11 +17,8 @@ if(isset($_POST["cadastrar"])){
 
     $marca = findIdByNameMarca($marca)["IDMarca"];
 
-    try {
-        $reponse = insertProduto($cbarra, $titulo, $preco, $marca, $tipo, $detalhesproduto, $tamanhos, $idSuap_produto);
-    } catch (PDOException $e) {
-        echo "<script>alert('Erro ao cadastrar!')</script>";
-    }
+    echo insertProduto($cbarra, $titulo, $preco, $marca, $tipo, $detalhesproduto, $tamanhos, $idSuap_produto);
+
 }
 
 ?>
@@ -101,7 +98,7 @@ if(isset($_POST["cadastrar"])){
 
     <footer>
         <div class="voltar">
-            <a href="index.html">Voltar para a pagina Incial</a>
+            <a href="./index.php">Voltar para a pagina Incial</a>
         </div>
     </footer>
 </body>
