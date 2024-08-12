@@ -105,6 +105,7 @@ main{
 }
 
 main > h2{
+    margin-top: 300px;
     color: var(--text1)
 }
 

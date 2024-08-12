@@ -15,33 +15,17 @@
     <?php include_once "../components/header.php"?>
 
     <main>
-        <h2>Marcas Parceiras</h2>
+        <h2>marcasparceiras.php</h2>
 
-        <div class="produtos">
+        <?php echo $_POST ['IDMarca'] ??'';?>
+        <?php echo $_POST ['nomeFornecedor'] ??'';?>
+        <?php echo $_POST ['email'] ??'';?>
+        <?php echo $_POST ['cpf'] ??'';?>
+        <?php echo $_POST ['descricao'] ??'';?>
+        <?php echo $_POST ['dataCriacao'] ??'';?>
+        <?php echo $_POST ['contato'] ??'';?>
+        <?php echo $_POST ['endereco'] ??'';?>
 
-        
-        <?php 
-        require realpath(__DIR__ . "/../controllers/marca/crudMarca.php");
-
-        $data = findAllMarca();
-
-            foreach ($data as $marca) {?>
-
-            <div class="produto">
-                <div class="imagem">
-                    <img src="../img/img2/logo.png" alt="Imagem do Produto">
-                </div>
-                <div class="info">
-                    <h3 class="desc-prod"><?= $marca["nomeMarca"]?></h3>
-                    <div>
-                        <button>Ver mais</button>
-                    </div>
-                </div>
-            </div>
-
-        <?php }?>
-
-        </div>
         <div class="voltar">
             <a href="./index.php">Voltar para a pagina Incial</a>
         </div>

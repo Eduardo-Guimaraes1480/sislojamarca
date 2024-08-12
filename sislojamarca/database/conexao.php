@@ -1,13 +1,12 @@
 <?php
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$dbname = 'sislojamarca';
 
-$dsn = "mysql:host=localhost;dbname=sislojamarca";
-
-try {
-  $conn = new PDO($dsn, "root", "");
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-  echo "Erro: " . $e->getMessage();
+// Criar a conexão com o BD usando o PDO e a porta 
+try{
+    $conn = new mysqli($host, $user, $pass, $dbname);
+}   catch(mysqli_sql_exception $e) {
+    echo 'Erro ao se conectar: '. $e->getMessage();
 }
-
-
-

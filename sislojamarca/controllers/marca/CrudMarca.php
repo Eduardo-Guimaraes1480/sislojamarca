@@ -1,15 +1,14 @@
 <?php 
 
-require_once realpath(__DIR__ ."/produto.php");
+require_once realpath(__DIR__ ."/marca.php");
+class CrudMarca extends Marca {
 
-class CrudProduto extends Produto {
+    protected string $tabela = "marca";
 
-    protected string $tabela = "produto";
-
-    public function insert ($cbarra, $titulo, $preco, $marca, $tipo, $detalhesproduto, $tamanhos, $IDSuap_produto) {
+    public function insert ($nomeMarca, $descricao, $dataCriacao, $contato, $endereco, $IDFornecedor) {
         require_once realpath(__DIR__ . "/../../database/conexao.php");
         try {
-            $data = $conn->query("INSERT INTO $this->tabela VALUES ('$cbarra', '$titulo', '$preco', '$marca', '$tipo', '$detalhesproduto', '$tamanhos', '$IDSuap_produto')");
+            $data = $conn->query("INSERT INTO $this->tabela VALUES ('$nomeMarca', '$descricao', '$dataCriacao', '$contato', '$endereco', '$IDFornecedor')");
         } catch (Exception $e) {
             $data = $e->getMessage();
         }
