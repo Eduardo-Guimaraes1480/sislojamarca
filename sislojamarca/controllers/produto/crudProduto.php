@@ -47,3 +47,15 @@ function findProdutoByCBarra($cbarra) {
         return $e->getMessage();
     }
 }
+
+function deleteProduto($cbarra) {
+    require realpath(__DIR__ . "/../../database/conexao.php");
+    $sql = "DELETE FROM produto WHERE CBarra = '$cbarra'";
+    $stm = $conn->prepare($sql);
+    try {
+        $stm->execute();
+        return $stm->fetch();
+    } catch (PDOException $e) {
+        return $e->getMessage();
+    }
+}

@@ -29,8 +29,16 @@ if(isset($_GET["Cbarra"])){
             echo "Erro ao Alterar Produto!";
         }
     }
-}
 
+    if(isset($_POST["delete"])){
+        $result = deleteProduto($cbarra);
+        if($result){
+            echo "Produto Deletado com Sucesso!";
+        } else {
+            echo "Erro ao Deletar Produto!";
+        }
+    }
+}
 
 ?>
 
@@ -75,7 +83,7 @@ if(isset($_GET["Cbarra"])){
                 <label for="marcas"><p>Marcas</p></label>
                     <select id="marcas" name="marcas">
                         <?php foreach($marcas as $marca) {?>
-                            <option value="<?= $marca["IDMarca"]?>"><?= $marca["nomeMarca"]?></option>
+                            <option value="<?= $marca["IDMarca"]?>" <?php if($produto_search["marca"] == $marca["IDMarca"]) echo "selected='selected'"?>><?= $marca["nomeMarca"]?></option>
                         <?php } ?>
                     </select><br>
 
@@ -99,7 +107,8 @@ if(isset($_GET["Cbarra"])){
                         <option value="GG" <?php if($produto_search["tamanhos"] == "P") echo "selected='selected'"?>>GG</option>
                     </select><br>
 
-                <input type="submit" value="Alterar" name="update"><br><br>
+                <input type="submit" value="Alterar" name="update">
+                <input type="submit" value="Deletar" name="delete" style="background-color: rgb(190, 50, 60);"><br><br>
 
             </form>
         </div>

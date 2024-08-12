@@ -1,5 +1,4 @@
 <?php 
-
 function insertMarca ($nomeMarca, $sigla, $descricao, $dataCriacao, $contato, $endereco, $IDFornecedor) {
     require realpath(__DIR__ . "/../../database/conexao.php");
     $sql = "INSERT INTO marca VALUES (DEFAULT, :nomeMarca, :sigla, :descricao, :dataCriacao, :contato, :endereco, :IDFornecedor)";
