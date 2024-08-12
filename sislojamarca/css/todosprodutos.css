@@ -26,20 +26,81 @@ p{
 }
 
 h2{
+    margin-top: 40px;
     color: var(--text);
 }
 
 main{
     background-color: var(--blackback);
-    height: 43dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: var(--text);
-    gap: 10dvh;
+    gap: 40px;
 }
 
-main .voltar{
-    margin-top: 200px;
+.produtos {
+    width: 1300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.produto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    padding: 15px;
+    background-color: #c2c2c2c5;
+}
+
+.produto img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.produto h2{
+    font-size: 1.5rem;
+}
+
+.produto p{
+    font-size: 1.2rem;
+}
+
+.produto button{
+    background-color: var(--purpleback);
+    color: var(--whiteback);
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-self: flex-start;
+    white-space: nowrap;
+    overflow: hidden; */
+    text-overflow: ellipsis;
+    gap: 15px;
+}
+
+.info > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info > div > span {
+    color: #310054;
+    font-size: 1.2rem;
 }

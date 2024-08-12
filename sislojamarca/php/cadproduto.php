@@ -3,6 +3,7 @@ session_start();
 ini_set("display_errors", 1);
 
 require_once "../controllers/produto/crudProduto.php";
+require_once "../controllers/marca/crudMarca.php";
 
 if(isset($_POST["cadastrar"])){
     $cbarra = $_POST["cbarra"] ?? "não informado";
@@ -10,24 +11,18 @@ if(isset($_POST["cadastrar"])){
     $preco = $_POST["preco"] ?? "não informado";
     $marca = $_POST["marca"] ?? "não informado";
     $tipo = $_POST["tipo"] ?? "não informado";
-    $detalhesproduto = $_POST["detalhesproduto"] ?? "não informado";
+    $detalhesproduto = $_POST["detalhesProduto"] ?? "não informado";
     $tamanhos = $_POST["tamanhos"] ?? "não informado";
     $idSuap_produto = $_SESSION["id"];
-    
 
-    $crud = new CrudProduto();
-        
-    $reponse = $crud->insert($cbarra, $titulo, $preco, $marca, $tipo, $detalhesproduto, $tamanhos, $idSuap_produto);
+    $marca = findIdByNameMarca($marca)["IDMarca"];
 
-    echo $reponse;
-
-    if($reponse == 1){
-        echo "<script>alert('Cadastro realizado')</script>";
-    } else {
+    try {
+        $reponse = insertProduto($cbarra, $titulo, $preco, $marca, $tipo, $detalhesproduto, $tamanhos, $idSuap_produto);
+    } catch (PDOException $e) {
         echo "<script>alert('Erro ao cadastrar!')</script>";
     }
 }
-
 
 ?>
 
@@ -56,8 +51,8 @@ if(isset($_POST["cadastrar"])){
 
         <div class="part1">
             <form action="" method="post">
-            <label for="Cbarra"><p>C. Barra</p></label>
-                        <input type="text" name="cbarra" id="Cbarra" required><br>
+            <label for="cbarra"><p>C. Barra</p></label>
+                        <input type="text" maxlength="11" name="cbarra" id="Cbarra" required><br>
 
                     <label for="titulo"><p>Titulo</p></label>
                         <input type="text" name="titulo" id="titulo" required><br>
@@ -70,9 +65,13 @@ if(isset($_POST["cadastrar"])){
         <div class="part2">
                 <label for="marca"><p>Marca</p></label>
                         <select id="marca" name="marca">
-                            <option value="ESE">ESE</option>
-                            <option value="LAB">LABORATORIA</option>
-                            <option value="NE">NOVA ERA</option>
+                            <?php 
+                            $listaMarcas = findAllMarca();
+                            
+                            foreach ($listaMarcas as $imarca) {?>
+                                <option value="<?= $imarca["sigla"]?>"><?= $imarca["nomeMarca"]?></option>
+                            <?php }?>
+
                         </select><br>
                 <label for="tipo"><p>Tipos</p></label>
                     <select id="tipo" name="tipo">
